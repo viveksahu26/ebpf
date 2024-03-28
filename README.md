@@ -106,18 +106,18 @@ func main() {
 
 - Basically the construct deals with channels and goroutines. The channels is defined of  10 elements(function), which means it can recieve upto 10 functions. After that four goroutines are being created using 4 iteration. And each goroutines is looking to recieve message(i.e. functions) via channels and execute those funtions.  Although main program feeds one message to the channels and after that next line of code that is "Hello" is printed and main program gets exited.
 
-3.Giving use-cases of what these constructs could be used for.
+2.Giving use-cases of what these constructs could be used for.
 
 - There are lots of uses of channels and goroutines. Channels is a way to send and recieve message, whereas goroutine is run multiple program at a time, so that rest of the program could run concurrently. This results into better efficiency and better of utilization of resources.
 
-5.What is the significance of the for loop with 4 iterations?
+3.What is the significance of the for loop with 4 iterations?
 
 - To run four small program inside main program. And these small program are known as goroutines.
 
-7.What is the significance of make(chan func(), 10)?
+4.What is the significance of make(chan func(), 10)?
 
 - Creating a channel of type func(). This function has no arguments and o return values. Therefore, channel can store 10 functions.
 
-9.Why is “HERE1” not getting printed?
+5.Why is “HERE1” not getting printed?
 
 - Because main program gets exited. And it doesn't wait for goroutines program to process.
