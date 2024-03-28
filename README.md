@@ -57,7 +57,7 @@ space.
 - Now load this program in the kernel. We will use `bpftool` for this.
   - `$ sudo bpftool prog load tcppackets.bpf.o /sys/fs/bpf/ping`
 - Check whether the program is loaded or not.
-  - `$ sudo bpftool prog show name ping`
+  - `$ sudo bpftool prog show name xdp_tcp`
 - Now attach the program to xdp hook:
   - `$ sudo bpftool net attach xdp id 1970 dev wlo1`
 - Check whether program is attached to wlo1 interface.
@@ -67,6 +67,9 @@ space.
 - Open a second terminal(Terminal 2) and send a request to that server as a client.
   - `$ echo hello | nc localhost 4040`
 - If "hello" is printed on Terminal1, that means packet is allowed. And if "hello" is not printed, that means packet is dropped.
-
 - To see the tracelog:
   - `$ sudo bpftool prog tracelog`
+- To detach the program from xdp hook
+  - `$ sudo bpftool net detach xdp dev wlo1`
+- To remove program or unload program from kernel.
+  - `$ sudo rm  /sys/fs/bpf/ping`
