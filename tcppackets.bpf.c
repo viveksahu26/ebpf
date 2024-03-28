@@ -5,15 +5,7 @@
 
 SEC("xdp")
 int xdp_tcp(struct xdp_md *ctx) {
-    long protocol = lookup_protocol(ctx);
-    if (protocol == 1) // ICMP
-    {
-        bpf_printk("Hello ping protocol");
-        return XDP_DROP; 
-    }
-    else if (protocol == 6) // TCP
-    {
-        bpf_printk("Hello TCP protocol");
+        bpf_printk("Hello !!");
 
         // starting address of network packet
         void *data = (void *)(long)ctx->data;
